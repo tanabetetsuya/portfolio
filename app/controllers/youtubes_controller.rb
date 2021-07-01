@@ -1,2 +1,0 @@
-class YoutubesController < ApplicationController
-end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exercise_purpose: MyString
+  exercise_strength: MyString
+  exercise_type: MyString
+  exercise_amount: 1
+
+two:
+  exercise_purpose: MyString
+  exercise_strength: MyString
+  exercise_type: MyString
+  exercise_amount: 1

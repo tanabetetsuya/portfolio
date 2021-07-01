@@ -1,0 +1,2 @@
+class ExerciseSuggestion < ApplicationRecord
+end

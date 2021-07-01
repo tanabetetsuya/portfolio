@@ -1,24 +1,33 @@
-# README
+# ExerciseSuggestion
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ユーザーに適した運動メニュー提案サイト
 
-Things you may want to cover:
+### サイトテーマ
+運動をしたいが何をしていいかわからない、自分はどのような運動が適しているのだろうと悩める人のためのサイト
 
-* Ruby version
 
-* System dependencies
+### テーマを選んだ理由
+コロナ下で家で有酸素運動をする機会が増えたのですが、有酸素運動をYouTubeで調べるとたくさん出てきて自分に合った運動がわかりずらかったので、その時『その人の目的にあった運動メニューを提案してくれるアプリがあればいいな』と思ってこのテーマにしようと思いました。
 
-* Configuration
+### ターゲットユーザ
+ダイエットをしている（する予定の）女性、運動が好きな人、健康志向の高い人など
 
-* Database creation
 
-* Database initialization
+### 主な利用シーン
+自宅で運動を始める時、ジムで運動を始める時など
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEEfk8/edit#gid=0
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。

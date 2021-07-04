@@ -54,25 +54,27 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
+  # Easy installation and use of chromedriver to run system tests withsu Chrome
   gem 'chromedriver-helper'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'refile', require:"refile/rails",github:'manfe/refile'
+gem "refile", require:"refile/rails",github:'manfe/refile'
 gem "refile-mini_magick"
+
 gem 'dotenv-rails'
-gem 'factory_bot_rails'
-gem 'faker'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'jquery-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'ransack'
+gem 'faraday'

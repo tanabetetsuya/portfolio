@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  root to: 'homes#top'
   resources :exercise_menus, only: [:new, :create, :show, :index]
   get '/exercise_menus/:id/registration' => 'exercise_menus#registration'
   resources :users, only: [:show, :edit, :update] do

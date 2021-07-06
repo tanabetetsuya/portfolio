@@ -5,11 +5,18 @@ Rails.application.routes.draw do
      get 'homes/top'
   end
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations =>'users/registrations',
+    :sessions => 'users/sessions'
+  }
+  devise_scope :user do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
   root to: 'homes#top'
   resources :exercise_menus, only: [:new, :create, :show, :index]
   get '/exercise_menus/:id/registration' => 'exercise_menus#registration'
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show, :index, :edit, :update] do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end

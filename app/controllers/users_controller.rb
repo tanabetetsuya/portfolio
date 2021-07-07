@@ -7,5 +7,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @comment = Comment.new
   end
 end

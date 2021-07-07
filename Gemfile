@@ -79,3 +79,4 @@ gem 'momentjs-rails'
 gem 'ransack'
 gem 'google-api-client', '<0.9'
 gem 'optimist'
+# gemの変更

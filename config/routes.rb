@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :omniauth_callbacks => 'users/omniauth_callbacks'
   }
   root to: 'homes#top'
   resources :exercise_menus, only: [:new, :create, :show, :index]
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   post '/inquiries/:id/confirm' => 'inquiries#confirm'
   get '/inquiries/complete' => 'inquiries#complete'
   resources :events
+  get '/youtubes' => 'youtubes#index'
+  get '/youtubes/search' => 'youtubes#search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

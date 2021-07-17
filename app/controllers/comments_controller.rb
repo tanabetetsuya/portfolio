@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
-    @comment.save
-    redirect users_path
+    #binding.irb
+    exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])
+    comment = Comment.new(comment_params)
+    comment.user_id = current_user.id
+    comment.exercise_menu_id = exercise_menu.id
+    comment.save
+    redirect_to exercise_menus_path
   end
 
   def destroy
@@ -10,6 +14,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:user_id, :exercise_menu_id, :rate, :comment)
   end
 end

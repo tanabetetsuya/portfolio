@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
+  belongs_to :exercise_menu
 
   validates :rate, numericality: {
       less_than_or_equal_to: 5,

@@ -1,2 +1,7 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<%= form_with model: @event, url: "/events/#{@event.id}", method: :post, local: true do |f| %>
+<%= f.text_field :title %>
+<%= f.text_field :body %>
+<%= f.time_select :start_time %>
+<%= f.time_select :end_time %>
+<%= f.submit '登録' %>
+<% end %>

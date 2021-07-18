@@ -1,2 +1,4 @@
-<h1>ExerciseMenus#new</h1>
-<p>Find me in app/views/exercise_menus/new.html.erb</p>
+<%= form_with model: @exercise_menu, local: true do |f| %>
+<%= f.text_field :exercise_purpose %>
+<%= f.submit '登録' %>
+<% end %>

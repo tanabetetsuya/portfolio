@@ -1,7 +1,7 @@
 class YoutubesController < ApplicationController
   GOOGLE_API_KEY = ENV['API_KEY']
 
-  def find_videos(keyword, after: 1.months.ago, before: Time.now)
+  def find_videos(keyword, before: Time.now)
     service = Google::Apis::YoutubeV3::YouTubeService.new
     service.key = GOOGLE_API_KEY
 
@@ -9,10 +9,9 @@ class YoutubesController < ApplicationController
     opt = {
       q: keyword,
       type: 'video',
-      max_results: 50,
+      max_results: 50,#検索件数を上限５０件に設定
       order: :viewCount,
       page_token: next_page_token,
-      published_after: after.iso8601,
       published_before: before.iso8601
     }
     service.list_searches(:snippet, opt)

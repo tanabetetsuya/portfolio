@@ -14,5 +14,14 @@ RSpec.describe 'User_sign_up', type: :system do
         click_button "Sign up"
         expect(current_path).to eq root_path
       end
+      
+      it "新規登録が失敗" do
+        fill_in 'user[email]', with: 'test@testemail.com'
+        fill_in 'user[password]', with: '12345678'
+        fill_in 'user[password_confirmation', with: '12345678'
+        click_button "Sign up"
+        expect(current_path).to eq new_user_registration_path
+        expect(page).to have_content "can't be blank"
+        end
     end
   end

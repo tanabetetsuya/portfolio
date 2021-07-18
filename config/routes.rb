@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     :omniauth_callbacks => 'users/omniauth_callbacks'
   }
   root to: 'homes#top'
-  resources :exercise_menus, only: [:new, :create, :show, :index]
-  get '/exercise_menus/:id/registration' => 'exercise_menus#registration'
-  resources :users, only: [:show, :index, :edit, :update] do
-    resource :likes, only: [:create, :destroy]
+  resources :exercise_menus, only: [:new, :create, :show, :index] do
     resources :comments, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
+  get '/exercise_menus/:id/registration' => 'exercise_menus#registration'
+  resources :users, only: [:show, :index, :edit, :update] 
   get '/users/check' => 'users#check'
   put '/users' => 'users#resign'
   resources :exercise_suggestions, only: [:index, :create]

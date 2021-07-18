@@ -1,2 +1,26 @@
-<h1>ExerciseMenus#show</h1>
-<p>Find me in app/views/exercise_menus/show.html.erb</p>
+<div class="comment">
+    <%= @exercise_menu.exercise_purpose %>
+    <p>コメント件数:<%= @exercise_menu.comments.count %></p>
+    <% @exercise_menu.comments.each do |comments| %>
+    <%= comments.user.name %>
+    <%= comments.created_at.strftime('%Y/%m/%d') %>
+    <%= comments.comment %>
+    <% end %>
+</div>
+
+
+ <%= form_with(model:[@exercise_menu, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, placeholder: "コメントはここに" %>
+    <div id="rating-form">
+      <label>評価:</label>
+      <%= f.hidden_field :rate, :value => 'score' %>
+    </div>
+      <%= f.submit '送信' %>
+  <% end %>
+<script><
+    $('#rating-form').raty({
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        scoreName: 'comment[rate]'
+    });
+</script>

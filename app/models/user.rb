@@ -3,18 +3,21 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:twitter, :google_oauth2]
+         
+        validates :name, presence: true
+        validates :email, presence: true
 
-  has_many :inquiries, dependent: :destroy
-  has_many :events, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :exercise_menus, dependent: :destroy
-  has_many :exercise_suggestions, dependent: :destroy
-  has_many :sns_credentials, dependent: :destroy
+        has_many :inquiries, dependent: :destroy
+        has_many :events, dependent: :destroy
+        has_many :comments, dependent: :destroy
+        has_many :likes, dependent: :destroy
+        has_many :liked_exercise_menus, through: :likes, source: :exercise_menu
+        has_many :exercise_menus, dependent: :destroy
+        has_many :exercise_suggestions, dependent: :destroy
+        has_many :sns_credentials, dependent: :destroy
 
-  def liked_by?(user)
-    likes.where(user_id: user.id).exists?
-  end
+  
+
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first

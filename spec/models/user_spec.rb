@@ -12,5 +12,17 @@ RSpec.describe User, type: :model do
       expect(user).to be_invalid
       expect(user.errors[:name]).to include("can't be blank")
     end
+    
+    it 'emailがなければ無効' do
+      user = FactoryBot.build(:user, email: nil)
+      expect(user).to be_invalid
+      expect(user.errors[:email]).to include("can't be blank")
+    end
+    
+    it 'passwordがなければ無効' do
+      user = FactoryBot.build(:user, password: nil)
+      expect(user).to be_invalid
+      expect(user.errors[:password]).to include("can't be blank")
+    end
   end
 end

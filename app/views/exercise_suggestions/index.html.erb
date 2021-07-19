@@ -1,0 +1,5 @@
+<% @exercise_suggestions.each do |exercise_suggestion| %>
+    <p><%= exercise_suggestion.title %></p>
+    <p><%= exercise_suggestion.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %> <%= exercise_suggestion.channel_title %></p>
+    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= exercise_suggestion.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<% end %>

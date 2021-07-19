@@ -12,8 +12,15 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to  "#{OmniAuth::Utils.camelize(provider)} でログイン", omniauth_authorize_path(resource_name, provider), method: :post %><br />
-  <% end %>
-<% end %>
+<div>
+  <a class="btn btn-outline-primary" data-method="post" href="/users/auth/twitter">
+    Sign in with twitter
+  </a>
+  
+  <a class="btn btn-outline-warning" data-method="post" href="/users/auth/google_oauth2">
+    Sign in with google
+  </a>
+</div>
+
+
+

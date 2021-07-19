@@ -1,3 +1,12 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
-<%= link_to 'ログアウト', destroy_user_session_path %>
+<div class="jumbotron jumbotron-img jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="display-4 title">Exercise Suggestion</h1>
+        <p class="lead">
+            運動動画を選択してあなただけの運動メニューを作成しよう!
+        </p>
+        <p class="lead-btn">
+            <%= link_to 'はじめる', new_user_registration_path, method: :get, class: "btn btn-success" %>
+        </p>
+    </div>
+</div>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

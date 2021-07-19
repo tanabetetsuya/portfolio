@@ -9,7 +9,7 @@ class YoutubesController < ApplicationController
     opt = {
       q: keyword,
       type: 'video',
-      max_results: 50,#検索件数を上限５０件に設定
+      max_results: 5,#検索件数を上限５０件に設定
       order: :viewCount,
       page_token: next_page_token,
       published_before: before.iso8601
@@ -17,7 +17,16 @@ class YoutubesController < ApplicationController
     service.list_searches(:snippet, opt)
   end
 
+  def create
+    @youtube = Youtube.new(youtube_params)
+    @youtube.save
+    redirect_to youtubes_path
+  end
+
   def index
+    #binding.irb
+    @user = current_user
+    @exercise_suggestion = ExerciseSuggestion.new
     keyword = params[:keyword].to_s
     @youtube_data = find_videos('有酸素運動')
     regexp = Regexp.new('.*' + keyword + '.*')
@@ -28,6 +37,15 @@ class YoutubesController < ApplicationController
     }
     @youtube_data.items = f_items
 
+  end
+
+  def search
+    @youtube = Youtube.new
+  end
+  
+  private
+  def youtube_params
+    params.require(:youtube).permit(:keyword)
   end
 
 end

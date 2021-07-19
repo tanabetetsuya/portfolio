@@ -1,13 +1,22 @@
-<%= form_with url: '/youtubes', method: :get, local: true do |f| %>
-<%= f.text_field :keyword %>
-<%= f.submit '検索' %>
-<% end %>
-
 <% @youtube_data.items.each do |item| %>
-  <% snippet = item.snippet %>
-  <p><%= snippet.title %></p>
-  <p><%= snippet.published_at %><%= snippet.channel_title %></p>
-  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <%= form_with model: @exercise_suggestion, url: '/exercise_suggestions', method: :post,  local: true do |f| %>
+    <% snippet = item.snippet %>
+    <p><%= snippet.title %></p>
+    <% @exercise_suggestion.title = snippet.title %>
+    <%= f.hidden_field :title, :value => @exercise_suggestion.title %>
+    <p><%= snippet.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
+    <% @exercise_suggestion.published_at = snippet.published_at %>
+    <%= f.hidden_field :published_at, :value => @exercise_suggestion.published_at %>
+    <p><%= snippet.channel_title %></p>
+    <% @exercise_suggestion.channel_title = snippet.channel_title %>
+    <%= f.hidden_field :channel_title, :value => @exercise_suggestion.channel_title %>
+    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <% @exercise_suggestion.video_id = item.id.video_id %>
+    <%= f.hidden_field :video_id, :value => @exercise_suggestion.video_id %>
+    <% @exercise_suggestion.user_id = current_user.id %>
+    <%= f.hidden_field :user_id, :value => @exercise_suggestion.user_id %>
+    <p><%= f.submit '登録' %></p>
+  <% end %>
 <% end %>
 
 

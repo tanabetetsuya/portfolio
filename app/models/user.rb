@@ -15,6 +15,7 @@ class User < ApplicationRecord
         has_many :exercise_menus, dependent: :destroy
         has_many :exercise_suggestions, dependent: :destroy
         has_many :sns_credentials, dependent: :destroy
+        attachment :profile_image
 
   
 

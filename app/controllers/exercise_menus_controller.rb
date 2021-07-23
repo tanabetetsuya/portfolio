@@ -10,6 +10,11 @@ class ExerciseMenusController < ApplicationController
   def new
     @exercise_menu = ExerciseMenu.new
   end
+  
+  def confirmation
+    @exercise_suggestions = ExerciseSuggestion.all
+    @exercise_menu = ExerciseMenu.new(exercise_menu_params)
+  end
 
   def create
     @exercise_menu = ExerciseMenu.new(exercise_menu_params)
@@ -28,16 +33,8 @@ class ExerciseMenusController < ApplicationController
     redirect_to exercise_menus_path
   end
 
-
-
   def show
     @exercise_menu = ExerciseMenu.find(params[:id])
-    @comment = current_user.comments.new
-  end
-
-  def confirmation
-    @exercise_suggestions = ExerciseSuggestion.all
-    @exercise_menu = ExerciseMenu.new(exercise_menu_params)
   end
 
   private

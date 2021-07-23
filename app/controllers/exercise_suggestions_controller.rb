@@ -1,6 +1,7 @@
 class ExerciseSuggestionsController < ApplicationController
   def index
     @exercise_suggestions = ExerciseSuggestion.all
+    @exercise_menu = ExerciseMenu.new
   end
 
   def create

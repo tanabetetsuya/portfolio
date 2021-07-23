@@ -1,22 +1,44 @@
-<% @youtube_data.items.each do |item| %>
-  <%= form_with model: @exercise_suggestion, url: '/exercise_suggestions', method: :post,  local: true do |f| %>
-    <% snippet = item.snippet %>
-    <p><%= snippet.title %></p>
-    <% @exercise_suggestion.title = snippet.title %>
-    <%= f.hidden_field :title, :value => @exercise_suggestion.title %>
-    <p><%= snippet.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
-    <% @exercise_suggestion.published_at = snippet.published_at %>
-    <%= f.hidden_field :published_at, :value => @exercise_suggestion.published_at %>
-    <p><%= snippet.channel_title %></p>
-    <% @exercise_suggestion.channel_title = snippet.channel_title %>
-    <%= f.hidden_field :channel_title, :value => @exercise_suggestion.channel_title %>
-    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <% @exercise_suggestion.video_id = item.id.video_id %>
-    <%= f.hidden_field :video_id, :value => @exercise_suggestion.video_id %>
-    <% @exercise_suggestion.user_id = current_user.id %>
-    <%= f.hidden_field :user_id, :value => @exercise_suggestion.user_id %>
-    <p><%= f.submit '登録' %></p>
-  <% end %>
-<% end %>
+  <div class="container" style="mx-auto">
+    <div class="row">
+      <div class="d-flex flex-wrap justify-content-center bd-highlight">
+        <% @youtube_data.items.each do |item| %>
+        <%= form_with model: @exercise_suggestion, url: '/exercise_suggestions', method: :post,  local: true do |f| %>
+            <% snippet = item.snippet %>
+              <div class="col-lg-2">
+               <div class="card mb-3 mt-3" style="width: 200px; height: auto;">
+                 <div class="card-image-top mb-3"><iframe width="200" height="180" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                 <div class="card-body">
+                   <p class="card-text text-center">
+                     <%= snippet.title %>
+                     <%= snippet.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+                     <%= snippet.channel_title %>
+                     <% @exercise_suggestion.title = snippet.title %>
+                     <% @exercise_suggestion.published_at = snippet.published_at %>
+                     <% @exercise_suggestion.channel_title = snippet.channel_title %>
+                     <% @exercise_suggestion.video_id = item.id.video_id %>
+                     <% @exercise_suggestion.user_id = current_user.id %>
+                     <%= f.hidden_field :title, :value => @exercise_suggestion.title %>
+                     <%= f.hidden_field :published_at, :value => @exercise_suggestion.published_at %>
+                     <%= f.hidden_field :channel_title, :value => @exercise_suggestion.channel_title %>
+                     <%= f.hidden_field :video_id, :value => @exercise_suggestion.video_id %>
+                     <%= f.hidden_field :user_id, :value => @exercise_suggestion.user_id %>
+                   </p>
+                   <p class="card-text text-center">
+                      <%= f.submit '登録' %>
+                   </p>
+                 </div>
+               </div>
+             </div>
+            <% end %>
+            <% end %>
+           </div>
+         </div>
+       </div>
+
+
+
+
+
+
 
 

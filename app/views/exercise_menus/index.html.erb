@@ -1,50 +1,26 @@
-<div class="container" style="width: 800px;">
-  <% @exercise_menus.each do |exercise_menu| %>
-  <div class="row border" style="margin-top: 50px;">
-    <div class="col-lg-4">
-      <%= attachment_image_tag exercise_menu.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <% lastLike = 0 %>
+  <% j = 1 %>
+  <% @exercise_menus.each.with_index(1) do |exercise_menu, i| %>
+    <% if i == 1 %>
+     <% lastLike = exercise_menu.likes.count %>
+    <% end %>
+    <% if exercise_menu.likes.count != lastLike %>
+     <% j = i %>
+    <div class="text-center">
+      第<%= j %>位
     </div>
-    <div class="col-lg-7 col-offset-1">
-      <div class="table"> 
-        <tr>
-          <th><%= exercise_menu.user.name %></th>
-          <th><%= exercise_menu.user.email %></th>
-        </tr>
-      </div>
+    <%= render 'exercise_menus/ranking', exercise_menu: exercise_menu %>
+    
+    <% lastLike = exercise_menu.likes.count %>
+    <% else %>
+    <% lastLike = exercise_menu.likes.count %>
+    <div class="text-center">
+     第<%= j %>位
     </div>
-  </div>
-  <% exercise_menu.today_exercises.each do |today_exercise| %>
-  <div class="row border">
-    <div class="card d-flex flex-wrap justify-content-center" style="width: 200px; hight: 300px;">
-      <iframe class="card-img-top" width="200" height="180" src="https://www.youtube.com/embed/<%= today_exercise.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p class="cord-text"><%= today_exercise.title %> <%= today_exercise.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %> <%= today_exercise.channel_title %></p>
-    </div>
-  </div>
+    <%= render 'exercise_menus/ranking', exercise_menu: exercise_menu %>
+    <% end %>
   <% end %>
-  <div class="row border" style="margin-bottom: 50px;">
-    <div class="col-lg-4">
-      <p>コメント:<%= exercise_menu.comments.count %>件 <%= link_to 'コメント一覧へ', exercise_menu_comments_path(exercise_menu.id) %></p>
-    </div>
-    <div class="col-lg-7 col-offset-1">
-      <div class="text-align-right">
-        <% if exercise_menu.liked_by?(current_user) %>
-           <p>
-            <%= link_to exercise_menu_likes_path(exercise_menu.id), method: :delete do %>
-            ♡️ <%= exercise_menu.likes.count %>いいね
-           </p>
-            <% end %>
-            <% else %>
-           <p>
-            <%= link_to exercise_menu_likes_path(exercise_menu.id), method: :post do %>
-            ♡ <%= exercise_menu.likes.count %>いいね
-            <% end %>
-           </p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+
 
 <div class="exercise-menu-new">
   <%= link_to '運動メニュー作成へ', new_exercise_menu_path %>

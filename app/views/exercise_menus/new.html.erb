@@ -1,4 +1,13 @@
-<%= form_with model: @exercise_menu, local: true do |f| %>
-<%= f.text_field :exercise_purpose %>
-<%= f.submit '登録' %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-lg-8">
+    <div class="form-group" style="margin-top: 100px;">
+      <%= form_with model: @exercise_menu, url: "/confirmation", method: :post, local: true do |f| %>
+      <%= f.text_field :exercise_purpose, class: "form-control" %>
+      <%= f.submit '登録' %>
+      <% end %>
+     </div>
+   </div>
+  </div>
+</div>
+

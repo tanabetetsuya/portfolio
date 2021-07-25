@@ -12,15 +12,20 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<div>
-  <a class="btn btn-outline-primary" data-method="post" href="/users/auth/twitter">
-    Sign in with twitter
-  </a>
-  
-  <a class="btn btn-outline-warning" data-method="post" href="/users/auth/google_oauth2">
-    Sign in with google
+<div class="ul twitter-button">
+  <a  data-method="post" href="/users/auth/twitter" style="text-decoration: none; color: white;">
+    <i class="fab fa-twitter"></i>
+    Twitter でログイン
   </a>
 </div>
+<br>
+<div class="ul google-button">
+  <a data-method="post" href="/users/auth/google_oauth2" style="text-decoration: none; color: white;">
+    <i class="fab fa-google"></i>
+    Google でログイン
+  </a>
+</div>
+
 
 
 

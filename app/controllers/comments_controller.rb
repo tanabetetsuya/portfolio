@@ -6,18 +6,19 @@ class CommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.exercise_menu_id = exercise_menu.id
     comment.save
-    redirect_to exercise_menus_path
+    redirect_to exercise_menu_comments_path(exercise_menu.id)
   end
 
   def destroy
   end
 
   def index
-    @comments = Comment.all
+    @exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])
+    @comment = Comment.new
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :exercise_menu_id, :rate, :comment)
+    params.require(:comment).permit(:user_id, :exercise_menu_id, :comment)
   end
 end

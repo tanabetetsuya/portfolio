@@ -48,6 +48,7 @@ class User < ApplicationRecord
       user = User.new(
         name: auth.info.name,
         email: auth.info.email,
+        password: Faker::Internet.password(min_length: 8,max_length: 128),
       )
     end
     return {user: user}

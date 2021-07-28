@@ -6,15 +6,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     exercise_menus_path
   end
+  
+  
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   #def create
+    #if pass = Devise.friendly_token
+     #params[:user][:password] = pass
+     #params[:user][:password_confirmation] = pass
+    #end
+     #super
+   #end #新規登録で６文字以下のパスワードを打つと通過してしまう原因かもしれない
 
   # GET /resource/edit
   # def edit

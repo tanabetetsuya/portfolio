@@ -10,19 +10,19 @@ class Users::SessionsController < Devise::SessionsController
     root_path
   end
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+   #def new
+    
+   #end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+   #def create
+    
+   #end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  #def create
+    
+  #end
 
   # protected
 

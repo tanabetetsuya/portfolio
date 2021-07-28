@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
   def google_oauth2
        #@user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
-        callback_for(:google)
+    callback_for(:google)
   end
 
   def twitter
@@ -23,6 +23,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @sns = info[:sns]
       render template: "devise/registrations/new"
     end
+  end
+
+  def after_sign_in_path_for(resource)
+    exercise_menus_path
   end
 
   # You should also create an action method in this controller like this:

@@ -1,13 +1,18 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @event = Event.new
   end
 
   def create
-    event = Event.new(event_params)
-    event.user_id = current_user.id
-    event.save
-    redirect_to events_path
+    @event = Event.new(event_params)
+    @event.user_id = current_user.id
+    if @event.save
+      redirect_to events_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -16,8 +21,11 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.update(event_params)
-    redirect_to events_path
+    if event.update(event_params)
+      redirect_to events_path
+    else
+      render :edit
+    end
   end
 
   def show

@@ -2,12 +2,12 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:twitter, :google_oauth2]
-         
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:twitter, :facebook, :google_oauth2]
+
         validates :name, presence: true
         validates :email, presence: true
 
-        has_many :inquiries, dependent: :destroy
+        
         has_many :events, dependent: :destroy
         has_many :comments, dependent: :destroy
         has_many :likes, dependent: :destroy
@@ -17,7 +17,7 @@ class User < ApplicationRecord
         has_many :sns_credentials, dependent: :destroy
         attachment :profile_image
 
-  
+
 
 
   def self.without_sns_data(auth)
@@ -33,6 +33,8 @@ class User < ApplicationRecord
         user = User.new(
           name: auth.info.name,
           email: auth.info.email,
+          password: Devise.friendly_token[0, 20],
+          profile_image: auth.info.image,
         )
         sns = SnsCredential.new(
           uid: auth.uid,
@@ -48,7 +50,8 @@ class User < ApplicationRecord
       user = User.new(
         name: auth.info.name,
         email: auth.info.email,
-        password: Faker::Internet.password(min_length: 8,max_length: 128),
+        password: Devise.friendly_token[0, 20],
+        profile_image: auth.info.image,
       )
     end
     return {user: user}

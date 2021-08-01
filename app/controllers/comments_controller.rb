@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     #binding.irb
     exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])

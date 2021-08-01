@@ -1,4 +1,6 @@
 class ExerciseSuggestionsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @exercise_suggestions = ExerciseSuggestion.all
     @exercise_menu = ExerciseMenu.new

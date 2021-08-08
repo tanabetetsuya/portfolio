@@ -1,0 +1,67 @@
+    <div class="container" style="width: 800px;">
+      <div class="row border bg-white" style="margin-top: 50px;">
+        <div class="col-lg-4">
+            <%= attachment_image_tag exercise_menu.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "mt-3 rounded-circle"; %>
+        </div>
+        <div class="col-lg-7 col-offset-1">
+          <table class="table table-borderless">
+            <tr>
+              <th>運動の目的</th>
+              <td><%= exercise_menu.exercise_purpose %></td>
+            </tr>
+            <tr>
+              <th>運動目標</th>
+              <td><%= exercise_menu.exercise_goal %></td>
+            </tr>
+            <tr>
+              <th>名前</th>
+              <td><%= exercise_menu.user.name %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= exercise_menu.user.email %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row border bg-white" style="height: auto;">
+        <div class="d-flex flex-wrap justify-content-center" style="width: 100%; height: auto !important;">
+          <% exercise_menu.today_exercises.each do |today_exercise| %>
+          <div class="col-lg-3" style="mx-auto">
+            <div class="card mt-3 mb-3" style="width: 200px;">
+              <div class="card-image-top mb-3"><iframe class="card-img-top" width="200" height="180" src="https://www.youtube.com/embed/<%= today_exercise.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+              <div class="cord-body" style="height: auto;">
+                <p class="card-text">
+                  <%= today_exercise.title %>
+                  <%= today_exercise.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+                  <%= today_exercise.channel_title %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row border bg-white">
+        <div class="col-lg-12">
+          <div class="d-flex justify-content-between mt-5">
+            <p>コメント:<%= exercise_menu.comments.count %>件 <%= link_to 'コメント一覧へ', exercise_menu_comments_path(exercise_menu.id) %></p>
+            <div class="text-align-right">
+              <% if exercise_menu.liked_by?(current_user) %>
+                 <p>
+                  <%= link_to exercise_menu_likes_path(exercise_menu.id), method: :delete do %>
+                  ♡️ <%= exercise_menu.likes.count %>いいね
+                 </p>
+                  <% end %>
+                  <% else %>
+                 <p>
+                  <%= link_to exercise_menu_likes_path(exercise_menu.id), method: :post do %>
+                  ♡ <%= exercise_menu.likes.count %>いいね
+                  <% end %>
+                 </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

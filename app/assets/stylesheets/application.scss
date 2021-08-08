@@ -17,3 +17,77 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+ .twitter-button {
+width: 200px;
+background-color: #66CCFF;
+text-align: center;
+}
+.google-button {
+ width: 200px;
+ background-color: #FF5F17;
+ text-align: center;
+}
+.facebook-button {
+ width: 200px;
+ background-color: #000080;
+ text-align: center;
+}
+.user-whole {
+ width: 800px;
+ height: auto;
+ margin: 100px auto;
+ background-color: #EEEEEE;
+ padding: 50px;
+}
+.notice {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.alert {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+.list-item {
+ list-style-type: decimal;
+}
+.bg-color {
+ background-color: #EEEEEE;
+}
+.bg-color2 {
+ background-color: #FF3399;
+}
+.pagination {
+ justify-content: center;
+ margin-top: 50px;
+}
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+.jumbotron-img {
+  background-image: image-url('shutterstock_162582491.jpg');
+  height: 800px;
+  background-size: cover;
+}
+.fas .fa-running {
+ width: 50px;
+ height: 50px;
+}
+.header-title {
+ font-size: 30px;
+ line-height: 40px;
+}

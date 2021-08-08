@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     #binding.irb
     exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])
@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
   def index
     @exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])
+    @comments = @exercise_menu.comments.all.page(params[:page]).per(5)
     @comment = Comment.new
   end
 

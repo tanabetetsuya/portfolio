@@ -33,7 +33,6 @@ class YoutubesController < ApplicationController
       f_items << data if snippet.title.match(regexp)
     }
     @youtube_data.items = f_items
-
   end
 
 

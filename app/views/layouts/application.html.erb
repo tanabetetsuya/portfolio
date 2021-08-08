@@ -6,16 +6,18 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=devise-width, inicial-scale=1, maximum-scale=1">
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5/css/bootstrap.min.css">
   </head>
 
 
-  <body class="d-flex flex-column vh-100" data-turbolinks = "false">
-    <header class="bg-danger text-light">
+  <body class="d-flex flex-column vh-100 bg-color" data-turbolinks = "false" style="height: 100%;">
+    <header class="bg-color2 text-light">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"></a>
+          <p class="navbar-brand p-3 header-title"><i class="fas fa-running pr-3"></i>Exercise Suggestion</p>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -53,15 +55,24 @@
     <% end %>
     <%= yield %>
     </main>
-    <footer class="bg-danger text-white pt-5 pb-4" style="margin-top: 50px;">
+    <footer class="bg-color2 text-white" style="margin-top: 50px;">
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-8 mx-auto">
-            <div class="d-flex justify-content-between">
-              <p>利用規約</p>
-              <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-              <a href="/inquiries" class="text-white-50">お問い合わせ</a>
+            <div class="d-flex justify-content-between pt-5">
+              <p>
+                <%= link_to '利用規約', page_path('terms'), class: 'text-white-50', style: 'text-decoration: none;'%>
+              </p>
+              <p>
+                <%= link_to 'プライバシーポリシー', page_path('privacy'), class: 'text-white-50', style: 'text-decoration: none;' %>
+              </p>
+              <a href="/inquiries" class="text-white-50" style="text-decoration: none;">お問い合わせ</a>
             </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-lg-8 mx-auto pt-3 pb-3">
+            <p class="text-center">© 2021 Exercise Suggestion</p>
           </div>
         </div>
       </div>

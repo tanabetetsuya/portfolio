@@ -6,8 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     exercise_menus_path
   end
-  
-  
+
+
+
   # GET /resource/sign_up
   # def new
   #   super

@@ -1,0 +1,26 @@
+<div class="page-header text-center" style="margin-top: 50px;">
+  <h1>お問い合わせ</h1>
+</div>
+
+<%= form_with model: @inquiry, url: "/inquiries/complete", method: :post, local: true do |f| %>
+<table class="table table-borderless" style="margin-left: 250px; margin-top: 50px;">
+  <tr>
+    <th><%= f.label :名前 %></th>
+    <td><%= @inquiry.name %></td>
+    <%= f.hidden_field :name %>
+  </tr>
+  <tr>
+    <th><%= f.label :メールアドレス %></th>
+    <td><%= @inquiry.reply_email %></td>
+    <%= f.hidden_field :reply_email %>
+  </tr>
+  <tr>
+    <th><%= f.label :お問い合わせ内容 %></th>
+    <td><%= @inquiry.message %></td>
+    <%= f.hidden_field :message  %>
+  </tr>
+</table>
+ <div class="actions text-center">
+    <%= f.submit '送信', class: 'btn btn-success' %>
+ </div>
+ <% end %>

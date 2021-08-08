@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_063537) do
+ActiveRecord::Schema.define(version: 2021_08_06_105102) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,28 +28,39 @@ ActiveRecord::Schema.define(version: 2021_07_01_063537) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.float "rate"
+    t.integer "exercise_menu_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "body"
+    t.integer "user_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "exercise_menus", force: :cascade do |t|
     t.string "exercise_purpose"
-    t.string "exercise_strength"
-    t.string "exercise_type"
-    t.integer "exercise_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "keyword"
+    t.string "exercise_goal"
+    t.string "exercise_target"
   end
 
   create_table "exercise_suggestions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.datetime "published_at"
+    t.string "channel_title"
+    t.integer "user_id"
+    t.string "video_id"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -73,11 +84,41 @@ ActiveRecord::Schema.define(version: 2021_07_01_063537) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "exercise_menu_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "snses", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_snses_on_user_id"
   end
 
   create_table "today_exercises", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "exercise_menu_id"
+    t.string "title"
+    t.datetime "published_at"
+    t.string "channel_title"
+    t.string "video_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,8 +129,19 @@ ActiveRecord::Schema.define(version: 2021_07_01_063537) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.string "profile_image_id"
+    t.boolean "is_valid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "youtubes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "keyword"
   end
 
 end

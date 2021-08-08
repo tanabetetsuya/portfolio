@@ -15,14 +15,7 @@ class TodayExercisesController < ApplicationController
       #redirect_to new_exercise_path
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+ 
 
   private
   def today_exercise_params

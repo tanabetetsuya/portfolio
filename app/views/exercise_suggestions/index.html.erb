@@ -3,14 +3,16 @@
       <div class="d-flex flex-wrap bd-highlight" style="width: 100%;">
         <% @exercise_suggestions.each do |exercise_suggestion| %>
              <div class="col-lg-3">
-               <div class="card mb-3 mt-3" style="width: 200px; height: 500px;">
+               <div class="card mb-3 mt-3" style="width: 200px; height: auto;">
                  <div class="card-image-top mb-3"><iframe width="200" height="180" src="https://www.youtube.com/embed/<%= exercise_suggestion.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                  <div class="card-body">
                    <p class="card-text text-center">
                      <%= exercise_suggestion.title %>
                      <%= exercise_suggestion.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
                      <%= exercise_suggestion.channel_title %>
-                     <%= link_to '削除', exercise_suggestion_path(exercise_suggestion.id), method: :delete, class: 'btn btn-primary' %>
+                     <div class="text-center">
+                       <%= link_to '削除', exercise_suggestion_path(exercise_suggestion.id), method: :delete, class: 'btn btn-primary' %>
+                     </div>
                    </p>
                  </div>
                </div>

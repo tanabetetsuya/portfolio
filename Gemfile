@@ -58,6 +58,10 @@ group :test do
   gem 'faker'
 end
 
+group :production do
+  gem 'mysql2'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -69,6 +73,7 @@ gem 'dotenv-rails'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
@@ -79,4 +84,6 @@ gem 'ransack'
 gem 'google-api-client', '0.9.20', require: 'google/apis/youtube_v3'
 gem 'oauth2'
 gem 'trollop'
+gem 'high_voltage'
+gem 'kaminari'
 # gemの変更

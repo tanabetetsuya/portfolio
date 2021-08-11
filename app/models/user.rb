@@ -55,7 +55,6 @@ class User < ApplicationRecord
         name: auth.info.name,
         email: auth.info.email,
         password: Devise.friendly_token.first(7),
-        profile_image: auth.info.image,
       )
     end
     return {user: user}

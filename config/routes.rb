@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     :omniauth_callbacks => 'users/omniauth_callbacks'
   }
   resources :users, only: [:show, :edit, :update, :index]
-  get '/users/:id/check' => 'users#check', as: 'user_check'
-  put '/users/:id/resign' => 'users#resign', as: 'user_resign'
   root to: 'homes#top'
   post '/confirmation' => 'exercise_menus#confirmation'
   resources :exercise_menus, only: [:new, :create, :show, :index] do

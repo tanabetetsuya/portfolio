@@ -17,16 +17,6 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
-  def check
-    @user = current_user
-  end
-
-  def resign
-    @user =current_user
-    @user.update(is_valid: "退会")
-    reset_session
-    redirect_to new_user_session_path
-  end
   
   def index
     @user = User.all

@@ -17,7 +17,6 @@ class User < ApplicationRecord
         has_many :sns_credentials, dependent: :destroy
         attachment :profile_image
 
-        enum is_valid: {有効: true, 退会: false}
 
   #def active_for_authentication?
     # super && (self.is_valid === "有効")

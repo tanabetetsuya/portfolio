@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions',
     :omniauth_callbacks => 'users/omniauth_callbacks'
   }
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
   get '/users/:id/check' => 'users#check', as: 'user_check'
   put '/users/:id/resign' => 'users#resign', as: 'user_resign'
   root to: 'homes#top'

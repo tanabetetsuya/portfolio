@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     reset_session
     redirect_to new_user_session_path
   end
+  
+  def index
+    @user = User.all
+  end
 
   def correct_user #他のユーザーの情報を編集できないように設定
     user = User.find(params[:id])

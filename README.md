@@ -4,6 +4,7 @@
 
 ## サイト概要
 ユーザーに適した運動メニュー提案サイト
+https://exercise-suggestion.work
 
 ### サイトテーマ
 運動をしたいが何をしていいかわからない、自分はどのような運動が適しているのだろうと悩める人のためのサイト
@@ -23,7 +24,7 @@
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEEfk8/edit#gid=0
 
-## 開発環境
+## :wrench開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails

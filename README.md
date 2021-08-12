@@ -3,8 +3,8 @@
 <img width="1167" alt="スクリーンショット 2021-08-12 19 50 46" src="https://user-images.githubusercontent.com/81751235/129185458-a17fd834-0ad6-449e-ac60-15c8555a08f8.png">
 
 ## サイト概要
-ユーザーに適した運動メニュー提案サイト< br>
-https://exercise-suggestion.work
+ユーザーに適した運動メニュー提案サイト
+### https://exercise-suggestion.work
 
 ### サイトテーマ
 運動をしたいが何をしていいかわからない、自分はどのような運動が適しているのだろうと悩める人のためのサイト

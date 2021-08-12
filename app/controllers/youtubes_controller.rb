@@ -11,7 +11,7 @@ class YoutubesController < ApplicationController
     opt = {
       q: keyword,
       type: 'video',
-      max_results: 15,#検索件数を上限５０件に設定
+      max_results: 30,#検索件数を上限５０件に設定
       order: :viewCount,
       page_token: next_page_token,
       published_before: before.iso8601

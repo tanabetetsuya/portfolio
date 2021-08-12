@@ -3,7 +3,7 @@
 <img width="1167" alt="スクリーンショット 2021-08-12 19 50 46" src="https://user-images.githubusercontent.com/81751235/129185458-a17fd834-0ad6-449e-ac60-15c8555a08f8.png">
 
 ## サイト概要
-ユーザーに適した運動メニュー提案サイト
+ユーザーに適した運動メニュー提案サイト<
 https://exercise-suggestion.work
 
 ### サイトテーマ
@@ -24,7 +24,7 @@ https://exercise-suggestion.work
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEEfk8/edit#gid=0
 
-## :wrench開発環境
+## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails

@@ -33,6 +33,23 @@ https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEE
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 使用技術
+- Ruby 2.6.3
+- Rails 5.2.6
+- RSPEC
+- Youtube Date Api v3
+
+## 主要なgem
+- devise
+- omniauth-twitter
+- omniauth-google_oauth2
+- dotenv-rails 
+- bootstrap 4.5
+- fullcalendar-rails 
+- momentjs-rails 
+- google-api-client
+- kaminari
+
 ## 使用素材
 画像素材 shutter stock :https://www.shutterstock.com/ja/image-photo/full-length-instructor-fitness-class-performing-162582491
 

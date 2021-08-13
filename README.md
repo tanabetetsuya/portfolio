@@ -36,3 +36,5 @@ https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEE
 ## 使用素材
 画像素材 shutter stock :https://www.shutterstock.com/ja/image-photo/full-length-instructor-fitness-class-performing-162582491
 
+## ER図
+![Untitled Diagram-Page-2](https://user-images.githubusercontent.com/81751235/129346701-b25c2330-540d-49f4-9cb1-323339f689f4.png)

@@ -86,4 +86,5 @@ gem 'oauth2'
 gem 'trollop'
 gem 'high_voltage'
 gem 'kaminari'
+gem 'rename'
 # gemの変更

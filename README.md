@@ -43,10 +43,10 @@ https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEE
 - devise
 - omniauth-twitter
 - omniauth-google_oauth2
-- dotenv-rails 
+- dotenv-rails
 - bootstrap 4.5
-- fullcalendar-rails 
-- momentjs-rails 
+- fullcalendar-rails
+- momentjs-rails
 - google-api-client
 - kaminari
 

@@ -55,3 +55,6 @@ https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEE
 
 ## ER図
 ![Untitled Diagram-Page-2](https://user-images.githubusercontent.com/81751235/129346701-b25c2330-540d-49f4-9cb1-323339f689f4.png)
+
+## インフラ構成図
+![Untitled Diagram](https://user-images.githubusercontent.com/81751235/129465784-42c90c9f-03bb-4192-90a4-20652ca4c918.png)

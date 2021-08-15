@@ -14,7 +14,7 @@ class ExerciseMenusController < ApplicationController
   end
 
   def confirmation
-    @exercise_suggestions = ExerciseSuggestion.all
+    @exercise_videos = ExerciseVideo.all
     @exercise_menu = ExerciseMenu.new(exercise_menu_params)
   end
 
@@ -22,16 +22,16 @@ class ExerciseMenusController < ApplicationController
     @exercise_menu = ExerciseMenu.new(exercise_menu_params)
     @exercise_menu.user_id = current_user.id
     if @exercise_menu.save
-    @exercise_suggestions = current_user.exercise_suggestions.all
-    @exercise_suggestions.each do |exercise_suggestion|
+    @exercise_videos = current_user.exercise_videos.all
+    @exercise_videos.each do |exercise_video|
       @today_exercises = @exercise_menu.today_exercises.new
-      @today_exercises.title = exercise_suggestion.title
-      @today_exercises.channel_title = exercise_suggestion.channel_title
-      @today_exercises.published_at = exercise_suggestion.published_at
-      @today_exercises.video_id = exercise_suggestion.video_id
+      @today_exercises.title = exercise_video.title
+      @today_exercises.channel_title = exercise_video.channel_title
+      @today_exercises.published_at = exercise_video.published_at
+      @today_exercises.video_id = exercise_video.video_id
       @today_exercises.save
       end
-      @exercise_suggestions = current_user.exercise_suggestions.destroy_all
+      @exercise_videos = current_user.exercise_videos.destroy_all
       redirect_to exercise_menus_path
     else
       render :new

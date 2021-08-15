@@ -13,7 +13,7 @@ class User < ApplicationRecord
         has_many :likes, dependent: :destroy
         has_many :liked_exercise_menus, through: :likes, source: :exercise_menu
         has_many :exercise_menus, dependent: :destroy
-        has_many :exercise_suggestions, dependent: :destroy
+        has_many :exercise_videos, dependent: :destroy
         has_many :sns_credentials, dependent: :destroy
         attachment :profile_image
 

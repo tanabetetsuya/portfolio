@@ -1,0 +1,35 @@
+<div class="container" style="mx-auto">
+    <div class="row">
+      <div class="d-flex flex-wrap bd-highlight" style="width: 100%;">
+        <% @exercise_videos.each do |exercise_video| %>
+             <div class="col-lg-3">
+               <div class="card mb-3 mt-3" style="width: 200px; height: auto;">
+                 <div class="card-image-top mb-3"><iframe width="200" height="180" src="https://www.youtube.com/embed/<%= exercise_video.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                 <div class="card-body">
+                   <p class="card-text text-center">
+                     <%= exercise_video.title %>
+                     <%= exercise_video.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+                     <%= exercise_video.channel_title %>
+                     <div class="text-center">
+                       <%= link_to '削除', exercise_video_path(exercise_video.id), method: :delete, class: 'btn btn-primary' %>
+                     </div>
+                   </p>
+                 </div>
+               </div>
+             </div>
+            <% end %>
+           </div>
+         </div>
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-lg-6 mx-auto">
+        <div class="d-flex justify-content-between">
+          <p><%= link_to '運動動画一覧へ', youtubes_path, class: 'btn btn-primary' %></p>
+          <% if @exercise_suggestions.present? %>
+          <p><%= link_to '運動メニュー作成へ', new_exercise_menu_path(@exercise_menu.id), class: 'btn btn-primary' %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

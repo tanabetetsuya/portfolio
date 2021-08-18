@@ -8,7 +8,7 @@ class ExerciseVideosController < ApplicationController
 
   def create
     #binding.irb
-    exercise_video = ExerciseVideo.new(exercise_suggestion_params)
+    exercise_video = ExerciseVideo.new(exercise_video_params)
     exercise_video.save
     redirect_to exercise_videos_path
   end

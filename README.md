@@ -49,6 +49,7 @@ https://docs.google.com/spreadsheets/d/1OogSsz69f5gkp34oh5oMkpBRILJAMO9SBP4CwIEE
 - momentjs-rails
 - google-api-client
 - kaminari
+- rename
 
 ## 使用素材
 画像素材 shutter stock :https://www.shutterstock.com/ja/image-photo/full-length-instructor-fitness-class-performing-162582491

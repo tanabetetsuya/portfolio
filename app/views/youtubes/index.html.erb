@@ -2,7 +2,7 @@
     <div class="row">
       <div class="d-flex flex-wrap justify-content-center bd-highlight">
         <% @youtube_data.items.each do |item| %>
-        <%= form_with model: @exercise_video, url: '/exercise_videos', method: :post,  local: true do |f| %>
+        <%= form_with  url: '/exercise_videos', method: :post,  local: true do |f| %>
             <% snippet = item.snippet %>
               <div class="col-lg-2">
                <div class="card mb-3 mt-3" style="width: 200px; height: auto;">

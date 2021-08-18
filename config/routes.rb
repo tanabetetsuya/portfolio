@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
-  resources :exercise_videos, only: [:new, :create, :destroy, :index]
+  resources :exercise_suggestions, only: [:new, :create, :destroy, :index]
   resources :today_exercises, only: [:new, :create, :edit, :update, :destroy]
   resources :inquiries, only: [:index]
   post '/inquiries/confirmation' => 'inquiries#confirmation'

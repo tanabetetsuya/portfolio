@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_105102) do
+ActiveRecord::Schema.define(version: 2021_08_15_082756) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_08_06_105102) do
     t.string "video_id"
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string "exercise_name"
+    t.text "how_to_exercise"
+    t.integer "exercise_time"
+    t.string "exercise_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
     t.string "reply_email"
@@ -79,12 +88,27 @@ ActiveRecord::Schema.define(version: 2021_08_06_105102) do
     t.integer "exercise_menu_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sns_credentials", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "snses", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_snses_on_user_id"
   end
 
   create_table "today_exercises", force: :cascade do |t|

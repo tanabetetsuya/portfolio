@@ -24,7 +24,7 @@
       <div class="col-lg-6 mx-auto">
         <div class="d-flex justify-content-between">
           <p><%= link_to '運動動画一覧へ', youtubes_path, class: 'btn btn-primary' %></p>
-          <% if @exercise_suggestions.present? %>
+          <% if @exercise_videos.present? %>
           <p><%= link_to '運動メニュー作成へ', new_exercise_menu_path(@exercise_menu.id), class: 'btn btn-primary' %></p>
           <% end %>
         </div>

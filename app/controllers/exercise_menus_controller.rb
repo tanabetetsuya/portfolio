@@ -5,8 +5,7 @@ class ExerciseMenusController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
     @user = current_user
-    exercise_menus = ExerciseMenu.includes(:liked_users).sort{|a,b| b.liked_users.size <=> a.liked_users.size } #いいね数ランキング表示
-    @exercise_menus = Kaminari.paginate_array(exercise_menus).page(params[:page]).per(5)
+    @exercise_menus = ExerciseMenu.includes(:liked_users).sort{|a,b| b.liked_users.size <=> a.liked_users.size } #いいね数ランキング表示
   end
 
   def new

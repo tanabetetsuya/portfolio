@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_15_082756) do
+ActiveRecord::Schema.define(version: 2021_08_19_091309) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,23 +53,14 @@ ActiveRecord::Schema.define(version: 2021_08_15_082756) do
     t.string "exercise_target"
   end
 
-  create_table "exercise_videos", force: :cascade do |t|
+  create_table "exercise_suggestions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "video_id"
     t.string "title"
     t.datetime "published_at"
     t.string "channel_title"
-    t.integer "user_id"
-    t.string "video_id"
-  end
-
-  create_table "exercises", force: :cascade do |t|
-    t.string "exercise_name"
-    t.text "how_to_exercise"
-    t.integer "exercise_time"
-    t.string "exercise_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -88,27 +79,12 @@ ActiveRecord::Schema.define(version: 2021_08_15_082756) do
     t.integer "exercise_menu_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.float "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sns_credentials", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "snses", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_snses_on_user_id"
   end
 
   create_table "today_exercises", force: :cascade do |t|
@@ -127,9 +103,9 @@ ActiveRecord::Schema.define(version: 2021_08_15_082756) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.string "provider"
     t.string "uid"
     t.string "profile_image_id"

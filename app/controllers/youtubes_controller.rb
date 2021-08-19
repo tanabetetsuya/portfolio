@@ -23,7 +23,7 @@ class YoutubesController < ApplicationController
   def index
     #binding.irb
     @user = current_user
-    @exercise_suggestion= ExerciseSuggestion.new
+    @exercise_suggestion = ExerciseSuggestion.new
     @keyword = params[:keyword].to_s
     @youtube_data = find_videos('有酸素運動')
     regexp = Regexp.new('.*' + @keyword + '.*')
